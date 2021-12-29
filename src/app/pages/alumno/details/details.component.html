@@ -1,0 +1,340 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+  style="min-height: 300px; background-image: url(assets/img/brand/CNI.png); background-size: cover; background-position: center top;">
+  <span class="mask bg-gradient-success opacity-8"></span>
+</div>
+
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-8 order-xl-1 center">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Detalles del alumno</h3>
+            </div>
+            <div class="col-4 text-right">
+              <a href="#!" routerLink="/alumno/index" class="btn btn-outline-success">Regresar</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <h6 class="heading-small text-muted mb-4">Datos Generales</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-4">
+                  <li class="list-group">
+                    Nombre(s): <h5 >
+                      <label >{{alumno.nombre}}</label>
+                      </h5>
+                  </li>
+                </div>
+                <div class="col-lg-4">
+                  <li class="list-group">
+                    Apellidos: <h5>
+                      <label >{{alumno.apellido}}</label>
+                    </h5>
+                  </li>
+                </div>
+                <div class="col-lg-4">
+                  <li class="list-group">
+                    Edad: <h5>
+                      <label >{{alumno.edad}}</label>
+                    </h5>
+                  </li>
+                </div>
+              </div>
+              <div></div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    E-mail: <h5>
+                      <label >{{alumno.email}}</label>
+                    </h5>
+                  </li>
+                </div>
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Telefono: <h5>
+                      <label >{{alumno.telefono}}</label>
+                    </h5>
+                  </li>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Talla: <h5>
+                      <label >{{alumno.talla}}</label>
+                    </h5>
+                  </li>
+                </div>
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Peso: <h5>
+                      <label >{{alumno.peso}}</label>
+                    </h5>
+                  </li>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    CURP: <h5>
+                      <button class="btn btn-success" (click)="curp()">
+                        Download PDF
+                      </button>
+                      <div *ngIf = "archivo">
+                        <iframe
+                        [src]="archivo | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                      <!-- <label >{{alumno.curp}}</label> -->
+                    </h5>
+                  </li>
+                </div>
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Acta de nacimiento:
+                    <h5>
+                      <button class="btn btn-success" (click)="acta()">
+                        Download PDF
+                      </button>
+
+                      <div *ngIf = "alumno.acta_nacimiento">
+                        <iframe
+                        [src]="alumno.acta_nacimiento | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Credencial:
+                    <h5 >
+                      <button class="btn btn-success" (click)="credencial()">
+                        Download PDF
+                      </button>
+
+                      <div *ngIf = "alumno.credencial">
+                        <iframe
+                        [src]="alumno.credencial | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Comprobante de domicilio:
+                    <h5 >
+                      <button class="btn btn-success" (click)="comprobanteDom()">
+                        Download PDF
+                      </button>
+
+                      <div *ngIf = "alumno.comprobante_domicilio">
+                        <iframe
+                        [src]="alumno.comprobante_domicilio | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Comprobante de incripción:
+                    <h5 >
+                      <button class="btn btn-success" (click)="comprobanteCal()">
+                        Download PDF
+                      </button>
+
+                      <div *ngIf = "alumno.comprobante_calificacion">
+                        <iframe
+                        [src]="alumno.comprobante_calificacion | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Boleta de calificaciones:
+                    <h5 >
+                      <button class="btn btn-success" (click)="boleta()">
+                        Download PDF
+                      </button>
+
+                      <div *ngIf = "alumno.boleta">
+                        <iframe
+                        [src]="alumno.boleta | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Constancia de estudios:
+                    <h5 >
+                      <button class="btn btn-success" (click)="constancia()">
+                        Download PDF
+                      </button>
+
+                      <div *ngIf = "alumno.constancia_estudios">
+                        <iframe
+                        [src]="alumno.constancia_estudios | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Cartilla de vacunación:
+                    <h5 >
+                      <button class="btn btn-success" (click)="cartilla()">
+                        Download PDF
+                      </button>
+
+                      <div *ngIf = "alumno.cartilla_vacunacion">
+                        <iframe
+                        [src]="alumno.cartilla_vacunacion | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Cartilla de radicación:
+                    <h5 >
+                      <button class="btn btn-success" (click)="cartillaRad()">
+                        Download PDF
+                      </button>
+
+                      <div *ngIf = "alumno.carta_radicacion">
+                        <iframe
+                        [src]="alumno.carta_radicacion | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Seguro médico:
+                    <h5 >
+                      <button class="btn btn-success" (click)="seguro()">
+                        Download PDF
+                      </button>
+
+                      <div *ngIf = "alumno.seguro">
+                        <iframe
+                        [src]="alumno.seguro | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+              </div>
+              <h6 class="heading-small text-muted mb-4">Datos generales del padre o tutor</h6>
+              <div class="row">
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Nombre(s): <h5>
+                      <label >{{alumno.nombrePadre}}</label>
+                    </h5>
+                  </li>
+                </div>
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Apellido: <h5>
+                      <label >{{alumno.apellidoPadre}}</label>
+                    </h5>
+                  </li>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Telefono: <h5>
+                      <label >{{alumno.telefonoPadre}}</label>
+                    </h5>
+                  </li>
+                </div>
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Grado de estudio: <h5>
+                      <label >{{alumno.grado_Estudio}}</label>
+                    </h5>
+                  </li>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    CURP:
+                    <h5 >
+                      <div *ngIf = "alumno.curp_padre">
+                        <button class="btn btn-success" (click)="curpPadre()">
+                          Download PDF
+                        </button>
+  
+                        <iframe
+                        [src]="alumno.curp_padre | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    Acta de nacimiento:
+                    <h5 >
+                      <button class="btn btn-success" (click)="actaPadre()">
+                        Download PDF
+                      </button>
+
+                      <div *ngIf = "alumno.acta_padre">
+                        <iframe
+                        [src]="alumno.acta_padre | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <li class="list-group">
+                    INE:
+                    <h5 >
+                      <button class="btn btn-success" (click)="ine()">
+                        Download PDF
+                      </button>
+
+                      <div *ngIf = "alumno.ine">
+                        <iframe
+                        [src]="alumno.ine | safePipe"
+                        width=100% height=100%></iframe>
+                    </div>
+                    </h5>
+                  </li>
+                </div>
+              </div> 
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

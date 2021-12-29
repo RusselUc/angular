@@ -1,0 +1,489 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 300px; background-image: url(assets/img/brand/hopelchen.jpg); background-size: cover; background-position: center top;">
+    <span class="mask bg-gradient-success opacity-8"></span>
+  </div>
+
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col-xl-8 order-xl-1 center">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Editar Datos</h3>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a href="#!" routerLink="/alumno/index" class="btn btn-outline-success">Regresar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="form" (ngSubmit)="submit()">
+                        <h6 class="heading-small text-muted mb-4">Editar los campos</h6>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-nombre">Nombre(s)</label>
+                                        <input formControlName="nombre" [(ngModel)]="alumno.nombre" id="nombre"
+                                            type="text" class="form-control form-control-alternative"
+                                            placeholder="Ejp. Daniela">
+                                        <div *ngIf="f.nombre.touched && f.nombre.invalid" class="alert alert-danger"
+                                            role="alert">
+                                            <div *ngIf="f.nombre.errors.required">*Nombre is required.</div>
+                                            <div *ngIf="f.nombre.errors.pattern">*The nombre must only contain letters.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-apellido">Apellido</label>
+                                        <input formControlName="apellido" [(ngModel)]="alumno.apellido" id="apellido"
+                                            type="text" class="form-control form-control-alternative"
+                                            placeholder="Ejp. Sanchez Tun">
+                                        <div *ngIf="f.apellido.touched && f.apellido.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.apellido.errors.required">*apellido is required.</div>
+                                            <div *ngIf="f.apellido.errors.pattern">*The apellido must only contain
+                                                numbers.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-email">Email</label>
+                                        <input formControlName="email" [(ngModel)]="alumno.email" id="input-email"
+                                            type="text" class="form-control form-control-alternative"
+                                            placeholder="Ejp. jesse@example.com">
+                                        <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                                            <div *ngIf="f.email.errors.required">*email is required.</div>
+                                            <div *ngIf="f.email.errors.pattern">*The email must only contain numbers.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-telefono">Telefono</label>
+                                        <input formControlName="telefono" [(ngModel)]="alumno.telefono" id="telefono"
+                                            type="text" class="form-control form-control-alternative"
+                                            placeholder="(+52)">
+                                        <div *ngIf="f.telefono.touched && f.telefono.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.telefono.errors.required">*Telefono is required.</div>
+                                            <div *ngIf="f.telefono.errors.pattern">*The telefono must only contain
+                                                numbers.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-last-name">Edad</label>
+                                            <input formControlName="edad" [(ngModel)]="alumno.edad" id="edad" type="text"
+                                                class="form-control form-control-alternative"
+                                                placeholder="Ingresar edad">
+                                            <div *ngIf="f.edad.touched && f.edad.invalid" class="alert alert-danger">
+                                                <div *ngIf="f.edad.errors.required">*Edad is required.</div>
+                                                <div *ngIf="f.edad.errors.pattern">*The edad must only contain numbers.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-last-talla">Talla</label>
+                                            <input formControlName="talla" [(ngModel)]="alumno.talla" id="talla"
+                                                type="text" class="form-control form-control-alternative"
+                                                placeholder="Ejp. 1.65 m">
+                                            <div *ngIf="f.talla.touched && f.talla.invalid" class="alert alert-danger">
+                                                <div *ngIf="f.talla.errors.required">*Talla is required.</div>
+                                                <div *ngIf="f.talla.errors.pattern">*The talla must only contain
+                                                    numbers.</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-last-peso">Peso</label>
+                                            <input formControlName="peso" [(ngModel)]="alumno.peso" id="peso" type="text"
+                                                class="form-control form-control-alternative" placeholder="Ejp. 65 Kg">
+                                            <div *ngIf="f.peso.touched && f.peso.invalid" class="alert alert-danger">
+                                                <div *ngIf="f.peso.errors.required">*Peso is required.</div>
+                                                <div *ngIf="f.peso.errors.pattern">*The peso must only contain numbers.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="heading-small text-muted mb-4">DOCUMENTOS DEL ALUMNO</h6>
+                        <div class="row">
+                            <div class="col-lg-6" >
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-curp_n">CURP</label>
+                                    <input formControlName="curp_n" id="curp_n" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc1_n">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-curp">CURP</label>
+                                    <input formControlName="curp" id="curp" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc1">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" >
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-curp">CURP</label>
+                                    <input type="file"
+                                        class="form-control form-control-alternative"
+                                        (change)="capturarFileDoc1($event)"  >
+                                </div>
+                            </div>                   
+                            
+                            
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-acta_nacimiento_n">Acta de nacimiento</label>
+                                    <input formControlName="acta_nacimiento_n" id="acta_nacimiento_n" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc2_n">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-curp">Acta de nacimiento</label>
+                                    <input formControlName="acta_nacimiento" id="acta_nacimiento" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc2">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-acta_nacimiento">Acta de nacimiento</label>
+                                    <input type="file"
+                                        class="form-control form-control-alternative"
+                                        (change)="capturarFileDoc2($event)"  >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-credencial_n">Credencial</label>
+                                    <input formControlName="credencial_n" id="credencial_n" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc3_n">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-credencial">Credencial</label>
+                                    <input formControlName="credencial" id="credencial" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc3">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-credencial">Credencial</label>
+                                    <input type="file"
+                                        class="form-control form-control-alternative"
+                                        (change)="capturarFileDoc3($event)"  >
+                                </div>
+                            </div>                   
+                            
+                            
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-comprobante_domicilio_n">Comprobante de domicilio</label>
+                                    <input formControlName="comprobante_domicilio_n" id="comprobante_domicilio_n" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc4_n">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-comprobante_domicilio">Comprobante de domicilio</label>
+                                    <input formControlName="comprobante_domicilio" id="comprobante_domicilio" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc4">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-comprobante_domicilio">Comprobante de domicilio</label>
+                                    <input type="file"
+                                        class="form-control form-control-alternative"
+                                        (change)="capturarFileDoc4($event)"  >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-boleta_n">Boleta de calificación</label>
+                                    <input formControlName="boleta_n" id="boleta_n" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc5_n">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-boleta">Boleta de calificación</label>
+                                    <input formControlName="boleta" id="boleta" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc5">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-boleta">Boleta de calificación</label>
+                                    <input type="file"
+                                        class="form-control form-control-alternative"
+                                        (change)="capturarFileDoc5($event)"  >
+                                </div>
+                            </div>                   
+                            
+                            
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-comprobante_calificacion_n">Comprobante de inscripcion</label>
+                                    <input formControlName="comprobante_calificacion_n" id="comprobante_calificacion_n" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc6_n">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-comprobante_calificacion">Comprobante de inscripcion</label>
+                                    <input formControlName="comprobante_calificacion" id="comprobante_calificacion" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc6">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-comprobante_calificacion">Comprobante de inscripción</label>
+                                    <input type="file"
+                                        class="form-control form-control-alternative"
+                                        (change)="capturarFileDoc6($event)"  >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-constancia_estudios_n">Constancia de estudios</label>
+                                    <input formControlName="constancia_estudios_n" id="constancia_estudios_n" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc7_n">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-constancia_estudios">Constancia de estudios</label>
+                                    <input formControlName="constancia_estudios" id="constancia_estudios" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc7">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-constancia_estudios">Constancia de estudios</label>
+                                    <input type="file"
+                                        class="form-control form-control-alternative"
+                                        (change)="capturarFileDoc7($event)"  >
+                                </div>
+                            </div>                   
+                            
+                            
+                            <div class="col-lg-6" >
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-cartilla_vacunacion_n">Cartilla de vacunación</label>
+                                    <input formControlName="cartilla_vacunacion_n" id="cartilla_vacunacion_n" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc8_n">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-cartilla_vacunacion">Cartilla de vacunación</label>
+                                    <input formControlName="cartilla_vacunacion" id="cartilla_vacunacion" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc8">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-cartilla_vacunacion">Cartilla de vacunación</label>
+                                    <input type="file"
+                                        class="form-control form-control-alternative"
+                                        (change)="capturarFileDoc8($event)"  >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6" >
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-carta_radicacion_n">Carta de radicación</label>
+                                    <input formControlName="carta_radicacion_n" id="carta_radicacion_n" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc9_n">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-carta_radicacion">Carta de radicación</label>
+                                    <input formControlName="carta_radicacion" id="carta_radicacion" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc9">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-carta_radicacion">Carta de radicación</label>
+                                    <input type="file"
+                                        class="form-control form-control-alternative"
+                                        (change)="capturarFileDoc9($event)"  >
+                                </div>
+                            </div>                   
+                            
+                            
+                            <div class="col-lg-6" >
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-seguro_n">Seguro</label>
+                                    <input formControlName="seguro_n" id="seguro_n" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc10_n">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-seguro">Seguro</label>
+                                    <input formControlName="seguro" id="seguro" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc10">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-seguro">Seguro</label>
+                                    <input type="file"
+                                        class="form-control form-control-alternative"
+                                        (change)="capturarFileDoc10($event)"  >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6" >
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-diagnostico_n">Diagnostico medico</label>
+                                    <input formControlName="diagnostico_n" id="diagnostico_n" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc11_n">
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-diagnostico">Diagnostico médico</label>
+                                    <input formControlName="diagnostico" id="diagnostico" type="text"
+                                        class="form-control form-control-alternative"
+                                        [(ngModel)]="enviar_doc11">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-diagnostico">Diagnostico médico</label>
+                                    <input type="file"
+                                        class="form-control form-control-alternative"
+                                        (change)="capturarFileDoc11($event)"  >
+                                </div>
+                            </div>   
+                        </div>
+                        <h6 class="heading-small text-muted mb-4">DATOS DE PADRE O TUTOR</h6>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-nombrePadre">Nombre(s)</label>
+                                    <input type="text" formControlName="nombrePadre" [(ngModel)]="alumno.nombrePadre" id="nombrePadre"
+                                        class="form-control form-control-alternative" placeholder="Ejp. Daniela">
+                                    <div *ngIf="f.nombrePadre.touched && f.nombrePadre.invalid"
+                                        class="alert alert-danger" role="alert">
+                                        <div *ngIf="f.nombrePadre.errors.required">*Nombre is required.
+                                        </div>
+                                        <div *ngIf="f.nombrePadre.errors.pattern">*The nombre must only
+                                            contain letters.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-apellidoPadre">Apellido</label>
+                                    <input formControlName="apellidoPadre" [(ngModel)]="alumno.apellidoPadre" type="text" id="apellidoPadre"
+                                        class="form-control form-control-alternative" placeholder="Ejp. Sanchez Tun">
+                                    <div *ngIf="f.apellidoPadre.touched && f.apellidoPadre.invalid"
+                                        class="alert alert-danger">
+                                        <div *ngIf="f.apellidoPadre.errors.required">*apellido is required.
+                                        </div>
+                                        <div *ngIf="f.apellidoPadre.errors.pattern">*The apellido must only
+                                            contain numbers.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-telefonoPadre">Telefono</label>
+                                    <input formControlName="telefonoPadre" [(ngModel)]="alumno.telefonoPadre" type="text" id="telefonoPadre"
+                                        class="form-control form-control-alternative" placeholder="(+52)">
+                                    <div *ngIf="f.telefonoPadre.touched && f.telefonoPadre.invalid"
+                                        class="alert alert-danger">
+                                        <div *ngIf="f.telefonoPadre.errors.required">*Telefono is required.
+                                        </div>
+                                        <div *ngIf="f.telefonoPadre.errors.pattern">*The telefono must only
+                                            contain numbers.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-grado_Estudio">Grado de
+                                        estudio</label>
+                                    <input formControlName="grado_Estudio" [(ngModel)]="alumno.grado_Estudio" type="text" id="grado_Estudio"
+                                        class="form-control form-control-alternative" placeholder="Ejp. Sanchez Tun">
+                                    <div *ngIf="f.grado_Estudio.touched && f.grado_Estudio.invalid"
+                                        class="alert alert-danger">
+                                        <div *ngIf="f.grado_Estudio.errors.required">*grado is required.
+                                        </div>
+                                        <div *ngIf="f.grado_Estudio.errors.pattern">*The grado must only
+                                            contain numbers.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                            <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Actualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

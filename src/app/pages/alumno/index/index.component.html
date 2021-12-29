@@ -1,0 +1,94 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/brand/hopelchen.jpg); background-size: cover; background-position: center top;">
+    <span class="mask bg-gradient-success opacity-8"></span>
+    <div class="container-fluid">
+      <div class="header-body">
+        <section>
+          <div class="container-fluid mt--0">
+            <!-- Table -->
+            <div class="row">
+              <div class="col">
+                <div class="card shadow">
+  
+                  
+  
+                  <div class="card-header border-0 text-center">
+                    <h1>Lista De Alumnos</h1>
+                  </div>
+                  
+                  <div class="container">
+                    
+                    <div class="row">
+                      <div class="col">
+                        <span>
+                          <div class="d-flex justify-content-left ">
+                            <div class="searchbar">
+                              <input class="search_input" type="text" name="filterModelo" placeholder="Search..." [(ngModel)]="filterModelo">
+                              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                            </div>
+                          </div>
+                        </span>
+                      </div>
+                      <div class="col-md-auto">
+                        <span><button class="btn btn-icon btn-6 btn-success" type="button" a routerLink="/alumno/create">
+                          <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+                          <span class="btn-inner--text">Nuevo Alumno</span>
+                        </button></span>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <br>
+                  <div class="table-responsive">
+                    <table class="table table align-items-center table-flush">
+                      <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Edad</th>
+                        <th width="220px">Action</th>
+                      </tr>
+                      <tr *ngFor="let alumno of alumnos | alumno:filterModelo">
+                        <td>{{ alumno?.id }}</td>
+                        <td>{{ alumno?.nombre }}</td>
+                        <td>{{ alumno?.apellido }}</td>
+                        <td>{{ alumno?.email }}</td>
+                        <td>{{ alumno?.telefono }}</td>
+                        <td>{{ alumno?.edad }}</td>
+                        <td>
+                          <button class="btn btn-icon btn-3 btn-success btn-sm" type="button"
+                            [routerLink]="['/alumno/', 'details', alumno.id  ]">
+                            <span class="btn-inner--icon"><i class="far fa-eye "></i></span>
+                          </button>
+                          <button class="btn btn-icon btn-3 btn-success btn-sm" type="button"
+                            [routerLink]="['/alumno/', 'edit', alumno.id  ]">
+                            <span class="btn-inner--icon"><i class=" ni ni-check-bold "></i></span>
+                          </button>
+                          <button class="btn btn-icon btn-3 btn-danger btn-sm" type="button"
+                            (click)="deleteAlumno(alumno.id)">
+                            <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>
+                          </button>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <input type="file" alife-file-to-base64 multiple (onFileChanged) = "onFileChanged($event)">
+  <div *ngIf = "archivo">
+    <img
+    [src]="archivo"
+    width=100% height=600/>
+  </div>
+
+  <h1>File To base64 </h1>
+
+  <button (click)="test()">TEST</button><br /><br />
+  <input type="file" alife-file-to-base64 (change)="onFileChanges($event)" />
